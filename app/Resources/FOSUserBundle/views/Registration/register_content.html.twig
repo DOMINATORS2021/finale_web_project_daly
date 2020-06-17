@@ -1,0 +1,90 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Registration</title>
+    <link href="{{ asset('ADMIN/dist/css/styles.css')}}" rel="stylesheet" />
+    <script src="{{ asset('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js')}}" crossorigin="anonymous"></script>
+</head>
+<body class="bg-primary">
+<div id="layoutAuthentication">
+    <div id="layoutAuthentication_content">
+        <main>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-7">
+                        <div class="card shadow-lg border-0 rounded-lg mt-5">
+                            <div class="card-header"><h3 class="text-center font-weight-light my-4">Create Account</h3></div>
+                            <div class="card-body">
+                                <form class="user" action="{{ path("fos_user_registration_register") }}" method="post" class="fos_user_registration_register">
+                                    <div id="fos_user_registration_form">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control form-control-user" id="fos_user_registration_form_username" name="fos_user_registration_form[username]" required="required" maxlength="180" pattern=".{2,}" placeholder="Pseudo">
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="email" class="form-control form-control-user" id="fos_user_registration_form_email" name="fos_user_registration_form[email]" required="required" placeholder="Email Address ">
+                                        </div>
+                                        <div class="form-group">
+                                            <select class="form-control form-control-user" id="fos_user_registration_form_roles" name="fos_user_registration_form[roles][]" required="required">
+                                                <option value="ROLE_CLIENT">Hunter/Fisher</option>
+                                                <option value="ROLE_ADMIN">Admin</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group row">
+                                            <div class="col-sm-6 mb-3 mb-sm-0">
+                                                <input type="password" class="form-control form-control-user" id="fos_user_registration_form_plainPassword_first" name="fos_user_registration_form[plainPassword][first]" required="required" autocomplete="new-password" placeholder="Password">
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <input type="password" class="form-control form-control-user" id="fos_user_registration_form_plainPassword_second" name="fos_user_registration_form[plainPassword][second]" required="required" autocomplete="new-password" placeholder="Confirm Password">
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <input type="submit" value="Confirm" class="btn btn-primary btn-user btn-block" />
+                                        </div>
+                                        <hr>
+                                        <a href="index.html" class="btn btn-google btn-user btn-block">
+                                            <i class="fab fa-google fa-fw"></i> Sign up with Google
+                                        </a>
+                                        <a href="index.html" class="btn btn-facebook btn-user btn-block">
+                                            <i class="fab fa-facebook-f fa-fw"></i> Sign up with Facebook
+                                        </a>
+                                    </div>
+                                    {{ form_widget(form._token) }}
+                                </form>
+
+                            </div>
+                            <div class="card-footer text-center">
+                                <div class="small"><a href="{{ path('fos_user_security_login') }}">Have an account? Go to login</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <div id="layoutAuthentication_footer">
+        <footer class="py-4 bg-light mt-auto">
+            <div class="container-fluid">
+                <div class="d-flex align-items-center justify-content-between small">
+                    <div class="text-muted">Copyright &copy; Your Website 2019</div>
+                    <div>
+                        <a href="#">Privacy Policy</a>
+                        &middot;
+                        <a href="#">Terms &amp; Conditions</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+</div>
+<script src="{{ asset('https://code.jquery.com/jquery-3.4.1.min.js')}}" crossorigin="anonymous"></script>
+<script src="{{ asset('https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js')}}" crossorigin="anonymous"></script>
+<script src="{{ asset('ADMIN/dist/js/scripts.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,127 @@
+{% extends "@User/Page_client.html.twig" %}
+{% block body %}
+
+
+
+    {##}
+    {#<div class="page container">#}
+        {#<div class="row">#}
+            {#<div class="col-lg-12">#}
+                {#<h2>Events</h2>#}
+                {#<span class="h7 mt-0"></span>#}
+                {#<hr class="small-divider left">#}
+                {#<div class="row mt-5">#}
+                    {#{% for evenement in R %}#}
+                    {#<div class="col-lg-4 widget2">#}
+                            {#<div class="card bg-light" >#}
+                            {#<div class="card-img">#}
+                                {#<!-- image event -->#}
+
+
+                                {#<a href="{{ path('one_event_Show', { 'id': evenement.id }) }}">#}
+                                    {#<img class="card-img-top" src="{{ asset('Upload/') }}{{ evenement.nomfile }}" alt="">#}
+                                {#</a>#}
+
+
+
+                            {#</div>#}
+                            {#<div class="card-body text-center">#}
+                                {#<!-- event info -->#}
+                                    {#<h5 class="card-title">Nom: {{ evenement.nom }}</h5>#}
+                                {#<ul class="list-unstyled colored-icons">#}
+                                    {#<li><span><i class="fas fa-calendar-alt mr-2"></i>Date Début : {{ evenement.datedebut|date('Y-m-d') }}</span></li>#}
+                                    {#<li><span><i class="fas fa-calendar-alt mr-2"></i>Date Fin :  {{ evenement.datefin|date('Y-m-d') }}</span></li>#}
+                                    {#<li><span><i class="fas fa-map-marker-alt mr-2"></i>Lieu : {{ evenement.adresse }}</span></li>#}
+                                    {#<li><span><i class="flaticon-animals-11"></i>Organisateur :  {{ evenement.organisateur }}</span></li>#}
+                                    {#<li><span><i class="flaticon-animals-11"></i>NBR Particiants :  {{ evenement.nbrparticipant }}</span></li>#}
+
+                                {#</ul>#}
+
+                                {#<a href="{{ path('one_event_Show', { 'id': evenement.id }) }}" class="btn btn-primary btn-sm mt-0">More info</a>#}
+
+
+                            {#</div>#}
+                        {#</div>#}
+                    {#</div>#}
+                    {#{% endfor %}#}
+                    {#<div class="col-md-12 mt-5">{{ knp_pagination_render(R) }}</div>#}
+                {#</div>#}
+            {#</div>#}
+        {#</div>#}
+    {#</div>#}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <link rel="stylesheet" href="{{ asset('template-front/css/font-awesome.css') }}">
+
+<br><br><br><br>
+
+    <div class="container">
+        <div class="row masonry-grid">
+
+            {% for rece in R %}
+
+                <div class="col-md-12 masonry-item">
+
+                    <div class="post">
+                        <div class="post-thumb">
+                            <img src="{{ asset('Upload/') }}{{ rece.nomfile }}"  class="img-fluid">
+                        </div>
+                        <div class="post-meta">
+                            <h3 class="">{{rece.nom}}</h3>
+                            <ul class="list-inline">
+                                <br>
+                                <li class="list-inline-item"><i class="ion-calendar"></i> Lieu : {{ rece.adresse}}</li>
+                                <br>
+                                <li class="list-inline-item"><i class="ion-chatbubble"></i>  Date Début : {{ rece.datedebut|date('Y-m-d')}}</li>
+                                <br>
+                                <li class="list-inline-item"><i class="ion-chatbubble"></i>  Date Fin : {{ rece.datefin|date('Y-m-d')}}</li>
+                                <br>
+                                <li class="list-inline-item"><i class="ion-chatbubble"></i>  NBR Particiants Max : {{ rece.nbrparticipantmax}}</li>
+                                <br>
+                            </ul>
+                        </div>
+                        <div class="post-content">
+                            <p>
+                                NBR Particiants  : {{rece.nbrparticipant}}
+                            </p>
+                            <div class="text-right">
+                                <a href="{{ path('one_event_Show',{'id':rece.id}) }}" class="btn btn-primary btn-lg">Continue ....</a>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            {% endfor %}
+
+        </div>
+        <div class="text-center">{{ knp_pagination_render(R) }}</div>
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

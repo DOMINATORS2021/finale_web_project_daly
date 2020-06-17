@@ -1,0 +1,28 @@
+{% extends "@User/Page_admin.html.twig" %}
+
+{% block body %}
+
+    {{ form_start(form) }}
+    <div class="col-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Affecter produit</h4>
+                <p class="card-description">
+                </p>
+                <div class="form-group">
+                    <label for="exampleInputName1">Quantite Magasin</label>
+                    {{ form_widget(form.nvquantite, { 'attr': {'class': 'form-control'} }) }}
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputName1">Prix</label>
+                    {{ form_widget(form.prix, { 'attr': {'class': 'form-control'} }) }}
+                </div>
+                <input type="submit" value="Confirm" class=" btn btn-primary mr-2"/>
+                {{ form_end(form) }}
+
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}

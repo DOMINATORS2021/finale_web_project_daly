@@ -1,0 +1,50 @@
+{% extends "@User/Page_client.html.twig" %}
+{% block body %}
+<section class="feature_product_area section_gap">
+    <div class="main_box">
+        <div class="container-fluid">
+            <div class="row">
+
+            </div>
+            <br>
+            <br>
+            <div class="row-cols-4">
+
+                {% for e in event %}
+                    <center>
+                        <div class="col col">
+
+                            <div class="col-md-4 col-sm-6 co-xs-12 gal-item">
+                                <div class="f_p_img">
+                                    <a href="#" data-toggle="modal" data-target="#2">
+                                        <img src="{{ asset('Upload/')}}{{ e.nomfile }}"  width="200" class="img-rectangle" class="col col "  /></a>
+                                    <div class="p_icon">
+                                        <i class="lnr lnr-cart"></i>
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <h1>{{ e.nom }} </h1> <h2> à {{ e.adresse }}</h2>
+                                <h3>Evénement de {{ e.type }}</h3>
+                                <h5>Organisé par {{ e.organisateur }} </h5>
+                                <h6>Pour plus d'informations contacter le(+216) {{ e.num }} ou bien réclamer ici</h6>
+                                <a class="btn btn-info" href="{{ path('reclamation_Ajouter',{'id':e.id}) }}">Reclamer</a>
+                            </div>
+                            <br>
+
+                        </div>
+                    </center>
+                {% endfor %}
+
+            </div>
+            <div class="navigation text-center " ><br>
+                <br>
+                <br>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

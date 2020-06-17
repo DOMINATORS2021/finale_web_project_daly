@@ -1,0 +1,112 @@
+{% extends "@User/Page_admin.html.twig" %}
+{% block body %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#myInput").on("keyup", function() {
+                var value = $(this).val().toLowerCase();
+                $("#mourad tr").filter(function() {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+        });
+    </script>
+    <style>
+        a.btn {
+            -webkit-transform: scale(0.8);
+            -moz-transform: scale(0.8);
+            -o-transform: scale(0.8);
+            -webkit-transition-duration: 0.5s;
+            -moz-transition-duration: 0.5s;
+            -o-transition-duration: 0.5s;
+        }
+        .test{
+            padding-left: 3rem;
+            padding-right: 3rem;
+        }
+    </style>
+    <div class="test">
+        <div class="col-lg-20 grid-margin stretch-card" xmlns="http://www.w3.org/1999/html">
+            <div class="card">
+                <div class="card-body">
+                    <h1 class="card-title">PRODUCT LIST</h1>
+
+                    <div class="table-responsive pt-3">
+
+
+
+                        <table class="table table-bordered">
+                            <thead>
+                            <tr>
+                                <th>
+                                    Name
+                                </th>
+                                <th>
+                                    Type
+                                </th>
+                                <th>
+                                    Description
+                                </th>
+                                <th>
+                                    Qunatity
+                                </th>
+
+
+                                <th>
+                                    Picture
+                                </th>
+
+                                <th>
+                                    Action
+                                </th>
+                            </tr>
+                            </thead>
+                            <tbody id="mourad">
+                            {% for s in stock %}
+
+                                <tr>
+                                    <td>
+                                        {{ s.nom }}
+                                    </td>
+                                    <td>
+                                        {{ s.type }}
+
+                                    </td>
+                                    <td>
+                                        {{ s.description }}
+
+                                    </td>
+                                    <td>
+                                        {{ s.quantite }}
+                                    </td>
+
+                                    <td>
+
+                                        <img src="{{ asset('Upload/')}}{{ s.nomfile }}" width="100" class="img-circle" />
+
+                                    </td>
+
+
+                                    <td>
+                                        <a class="btn btn-success a-btn-slide-text" href="{{ path('stock_modifier',{'id':s.id}) }}">
+                                            <span class="fas fa-edit" aria-hidden="true"></span>
+                                            <span><strong>Edit</strong></span></a>
+                                        <a class="btn btn-danger a-btn-slide-text" href="{{ path('stock_delete',{'id':s.id}) }}">
+                                            <span class="fas fa-minus-circle" aria-hidden="true"></span>
+                                            <span><strong>Delete</strong></span></a>
+                                        <a class="btn btn-primary a-btn-slide-text" href="{{ path('stockMg_modifier',{'id':s.id}) }}">
+                                            <span class="fas fa-plus-square" aria-hidden="true"></span>
+                                            <span><strong>Add to Shop</strong></span></a>
+                                    </td>
+
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

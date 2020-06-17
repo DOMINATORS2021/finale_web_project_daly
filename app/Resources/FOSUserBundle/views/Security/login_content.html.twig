@@ -1,0 +1,91 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% if error %}
+    <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+{% endif %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Page Title - SB Admin</title>
+    <link href="{{ asset ('ADMIN/dist/css/styles.css') }}" rel="stylesheet" />
+    <script src="{{ asset('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js') }}" crossorigin="anonymous"></script>
+
+</head>
+
+<body class="bg-primary">
+<div id="layoutAuthentication">
+    <div id="layoutAuthentication_content">
+        <main>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-5">
+                        <div class="card shadow-lg border-0 rounded-lg mt-5">
+                            <div class="card-header"><h3 class="text-center font-weight-light my-4">Login</h3></div>
+                            <div class="card-body">
+                                <form class="user" action="{{ path("fos_user_security_check") }}" method="post">
+
+                                {% if csrf_token %}
+                                    <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+                                {% endif %}
+
+                                <div class="form-group">
+                                    <input type="text" class="form-control form-control-user" id="username" name="_username" value="{{ last_username }}" required="required" autocomplete="username" placeholder="Entrer Pseudo...">
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" class="form-control form-control-user" id="password" name="_password" required="required" autocomplete="current-password" placeholder="Mot de Passe">
+                                </div>
+                                <div class="form-group">
+                                    <div class="custom-control custom-checkbox small">
+                                        <input type="checkbox" class="custom-control-input" id="customCheck">
+                                        <label class="custom-control-label" for="customCheck">Remember me</label>
+                                    </div>
+                                </div>
+                                <div>
+                                    <input type="submit" id="_submit" name="_submit" value="Login" class="btn btn-primary btn-user btn-block" />
+                                </div>
+                                <hr>
+                                <a href="#" class="btn btn-google btn-user btn-block">
+                                    <i class="fab fa-google fa-fw"></i> Sign in with Google
+                                </a>
+                                <a href="#" class="btn btn-facebook btn-user btn-block">
+                                    <i class="fab fa-facebook-f fa-fw"></i> Sign in with Facebook
+                                </a>
+                                </form>
+                            </div>
+                            <div class="card-footer text-center">
+                                <div class="small"><a href="{{ path ('fos_user_registration_register') }}">Need an account? Sign up!</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <div id="layoutAuthentication_footer">
+        <footer class="py-4 bg-light mt-auto">
+            <div class="container-fluid">
+                <div class="d-flex align-items-center justify-content-between small">
+                    <div class="text-muted">Copyright &copy; Your Website 2019</div>
+                    <div>
+                        <a href="#">Privacy Policy</a>
+                        &middot;
+                        <a href="#">Terms &amp; Conditions</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+</div>
+<script src="{{ asset ('https://code.jquery.com/jquery-3.4.1.min.js') }}" crossorigin="anonymous"></script>
+<script src="{{ asset ('https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js') }}" crossorigin="anonymous"></script>
+<script src="{{ asset ('ADMIN/dist/js/scripts.js') }}"></script>
+</body>
+</html>

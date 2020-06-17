@@ -1,0 +1,100 @@
+event_homepage:
+    path:     /
+    defaults: { _controller: EventsBundle:Default:index }
+
+
+
+event_Ajout:
+    path:     /admin/AjouterEvent
+    defaults: { _controller: EventsBundle:Events:AjouterEvent }
+
+event_Afficher:
+    path:     /admin/AfficherEvent
+    defaults: { _controller: EventsBundle:Events:AfficheEvent }
+
+event_delete:
+    path:     /admin/deleteEvent/{id}
+    defaults: { _controller: EventsBundle:Events:deleteEvent }
+
+event_modifier:
+    path:     /admin/dModifierEvent/{id}
+    defaults: { _controller: EventsBundle:Events:ModifierEvent }
+
+event_front:
+    path: /Client/Events
+    defaults: { _controller: EventsBundle:Events:AfficheEventsFront}
+
+event_Index:
+    path:     /Client/ShowIndex
+    defaults: { _controller: EventsBundle:Events:index }
+
+
+event_Show:
+    path:     /admin/ShowEvents
+    defaults: { _controller: EventsBundle:Events:ShowEvents }
+
+event_New:
+    path:     /admin/NewEvent
+    defaults: { _controller: EventsBundle:Events:new }
+
+one_event_Show:
+    path:     /Client/show/{id}
+    defaults: { _controller: "EventsBundle:Events:show" }
+    methods:  [GET, POST]
+
+pi_forum_ajout_Commantaire:
+    path:     /ajout_Commantaire/{id}
+    defaults: { _controller: "EventsBundle:Events:Ajout" }
+
+Feed_Index:
+    path:     /admin/AfficherFeed
+    defaults: { _controller: EventsBundle:Events:ShowComments }
+
+Feed_delete:
+    path:     /admin/deleteFeed/{id}
+    defaults: { _controller: EventsBundle:Events:DeletComments }
+
+
+    #API CODENAME ONE
+getEvents:
+    path:     /api/event
+    defaults: { _controller: EventsBundle:Events:getAllEvents }
+    methods:  [GET]
+
+getParticipe:
+    path:     /api/participe
+    defaults: { _controller: EventsBundle:Events:allParticipe }
+    methods:  [GET]
+
+addParticipe:
+    path:     /api/participe/{idEvent}/{idUser}
+    defaults: { _controller: EventsBundle:Events:particpe }
+    methods:  [GET]
+
+deleteParticipe:
+    path:     /api/iparticipe/{idEvent}/{idUser}
+    defaults: { _controller: EventsBundle:Events:deleteParticpe }
+    methods:  [GET]
+
+feed:
+    path:     /api/feed/{idEvent}
+    defaults: { _controller: EventsBundle:Events:feed }
+    methods:  [GET]
+
+addFeed:
+    path:     /api/addFeed/{idUser}/{idEvent}/{desc}
+    defaults: { _controller: EventsBundle:Events:addFeed }
+    methods:  [GET]
+
+
+
+
+
+
+
+
+
+
+
+
+

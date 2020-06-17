@@ -1,0 +1,85 @@
+{% extends "@User/Page_client.html.twig" %}
+{% block body %}
+
+<section class="feature_product_area section_gap">
+    <div class="col-lg-20 grid-margin stretch-card" xmlns="http://www.w3.org/1999/html">
+        <div class="card">
+            <div class="card-body">
+                <h1 class="card-title">My Complaints</h1>
+
+                <br> <br>
+                <div class="table-responsive pt-3">
+
+
+
+                    <table class="table table-bordered">
+                        <thead>
+                        <tr>
+
+                            <th>
+                                Nom Client
+                            </th>
+                            <th>
+                                Nom Event
+                            </th>
+                            <th>
+                                date de Reclamation
+                            </th>
+
+                            <th>
+                                Sujet Reclamation
+                            </th>
+                            <th>
+                                Description
+                            </th>
+                            <th>
+                                Statut
+                            </th>
+                            <th>
+                                Action
+                            </th>
+                        </tr>
+                        </thead>
+                        <tbody id="Raslen">
+                        {% for r in rec %}
+
+                            <tr>
+
+                                <td>
+                                    {{ r.idClient.username}}
+                                </td>
+                                <td>
+                                    {{ r.idevent.nom }}
+                                </td>
+                                <td>
+                                    {{ r.dateReclamation|date|date('d/M/Y') }}
+                                </td>
+                                <td>
+                                    {{ r.sujetReclamation}}
+                                </td>
+                                <td>
+                                    {{ r.descriptionReclamation}}
+                                </td>
+                                <td>
+                                    {{ r.statut}}
+                                </td>
+                                <td>
+                                    <a class="btn btn-warning a-btn-slide-text" href="{{ path('Modifier_Rec',{'id':r.id}) }}">
+                                        <span><strong>Modifier</strong></span></a>
+                                    <a class="btn btn-danger a-btn-slide-text" href="{{ path('Supprimer_Rec',{'id':r.id}) }}">
+                                        <span><strong>Supprimer</strong></span></a>
+
+                                </td>
+
+
+
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

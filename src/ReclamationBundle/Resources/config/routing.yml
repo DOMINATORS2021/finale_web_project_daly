@@ -1,0 +1,34 @@
+reclamation_homepage:
+    path:     /
+    defaults: { _controller: ReclamationBundle:Default:index }
+
+reclamation_Ajouter:
+    path:     /Client/AjouetReclamtion/{id}
+    defaults: { _controller: ReclamationBundle:Reclamation:Reclamation }
+
+reclamation_Affiche:
+    path:     /Client/AfficherReclamtion
+    defaults: { _controller: ReclamationBundle:Reclamation:AfficheReclamtionClient }
+
+reclamation_Affiche_admin:
+    path:     /admin/AfficherReclamtion
+    defaults: { _controller: ReclamationBundle:Reclamation:AfficheReclamtionAdmin }
+
+Traiter_admin:
+    path:     /admin/traiter/{id}
+    defaults: { _controller: ReclamationBundle:Reclamation:Traiter }
+
+Supprimer_Rec:
+    path:     /Client/SuuprimerReclamation/{id}
+    defaults: { _controller: ReclamationBundle:Reclamation:deleteReclamation }
+Supp_Rec:
+    path:     /admin/SuuprimerReclamation/{id}
+    defaults: { _controller: ReclamationBundle:Reclamation:deleteReclamationAdmin }
+
+Modifier_Rec:
+    path:     /Client/ModifierReclamation/{id}
+    defaults: { _controller: ReclamationBundle:Reclamation:ModifierReclamation }
+
+Sms:
+    path:     /admin/Sms
+    defaults: { _controller: ReclamationBundle:Sms:call }

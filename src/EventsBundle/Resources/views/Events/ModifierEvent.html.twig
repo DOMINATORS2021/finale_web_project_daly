@@ -1,0 +1,99 @@
+{% extends "@User/Page_admin.html.twig" %}
+
+{% block body %}
+
+    {{ form_start(form) }}
+    <div class="col-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Ajouter un événement</h4>
+                <p class="card-description">
+                </p>
+                <div class="form-group">
+                    <label for="exampleInputName1">Nom</label>
+                    {{ form_widget(form.nom, { 'attr': {'class': 'form-control'} }) }}
+
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail3">Type</label>
+                    {{ form_widget(form.type, { 'attr': {'class': 'form-control'} }) }}
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail3">Adresse</label>
+                    {{ form_widget(form.adresse, { 'attr': {'class': 'form-control'} }) }}
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail3">Organisateur</label>
+                    {{ form_widget(form.organisateur, { 'attr': {'class': 'form-control'} }) }}
+                </div>
+
+
+
+
+                <div class="form-group">
+                    <label for="exampleInputPassword4">Date Début</label>
+                    {{ form_widget(form.date_debut, { 'attr': {'class': 'form-control'} }) }}
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleInputPassword4">Date Fin</label>
+                    {{ form_widget(form.date_fin, { 'attr': {'class': 'form-control'} }) }}
+                </div>
+
+
+                <div class="form-group">
+                    <label for="exampleInputPassword4">Description</label>
+                    {{ form_widget(form.description, { 'attr': {'class': 'form-control'} }) }}
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleInputPassword4">nbr participant max</label>
+                    {{ form_widget(form.nbr_participant_max, { 'attr': {'class': 'form-control'} }) }}
+                </div>
+
+
+
+                <div class="form-group">
+                    <label for="exampleInputCity1">Num</label>
+                    {{ form_widget(form.num,{ 'attr': {'class': 'form-control'} }) }}
+                </div>
+
+                <div class="form-group">
+                    <label>Affiche</label>
+                    {{ form_widget(form.file, { 'attr': {'class': 'form-control file-upload-info'} }) }}
+
+                    <div class="input-group col-xs-12">
+                    </div>
+                </div>
+                <input type="submit" value="Envoyer" class=" btn btn-primary mr-2"/>
+                {{ form_end(form) }}
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $().ready(function() {
+            $("#mainForm").validate({
+                rules : {
+                    firstName : {
+                        required : true
+                    },
+                    lastName : {
+                        minlength : 3
+                    },
+                    login : {
+                        required : true,
+                        mail : true
+                    }
+                },
+                messages : {
+                    firstName : "Veuillez fournir un prénom",
+                    lastName : "Veuillez fournir un nom d'au moins trois lettres",
+                    login : "L'email est incorrect"
+                }
+            });
+        });
+    </script>
+
+{% endblock %}

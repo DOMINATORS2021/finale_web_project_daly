@@ -1,0 +1,55 @@
+{% extends "@User/Page_admin.html.twig" %}
+
+{% block body %}
+
+    {{ form_start(form) }}
+    <div class="col-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Edit stock</h4>
+                <p class="card-description">
+                </p>
+                <div class="form-group">
+                    <label for="exampleInputName1">Name</label>
+                    {{ form_widget(form.nom, { 'attr': {'class': 'form-control'} }) }}
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail3">Type</label>
+                    {{ form_widget(form.type, { 'attr': {'class': 'form-control'} }) }}
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail3">Description</label>
+                    {{ form_widget(form.description, { 'attr': {'class': 'form-control'} }) }}
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail3">Quantity</label>
+                    {{ form_widget(form.quantite, { 'attr': {'class': 'form-control'} }) }}
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleInputEmail3">Price</label>
+                    {{ form_widget(form.prix, { 'attr': {'class': 'form-control'} }) }}
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail3">New Price (Optional)</label>
+                    {{ form_widget(form.nvprix, { 'attr': {'class': 'form-control'} }) }}
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail3">Date</label>
+                    {{ form_widget(form.datees, { 'attr': {'class': 'form-control'} }) }}
+                </div>
+                <div class="form-group">
+                    <label>File upload</label>
+                    {{ form_widget(form.file, { 'attr': {'class': 'form-control file-upload-info'} }) }}
+
+                </div>
+                {{ form_end(form) }}
+
+                <input type="submit" value="Confirm" class=" btn btn-primary mr-2"/>
+
+
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

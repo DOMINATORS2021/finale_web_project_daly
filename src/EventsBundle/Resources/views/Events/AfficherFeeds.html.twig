@@ -1,0 +1,99 @@
+{% extends "@User/Page_admin.html.twig" %}
+{% block body %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#myInput").on("keyup", function() {
+                var value = $(this).val().toLowerCase();
+                $("#Raslen tr").filter(function() {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+        });
+    </script>
+    <style>
+        a.btn {
+            -webkit-transform: scale(0.8);
+            -moz-transform: scale(0.8);
+            -o-transform: scale(0.8);
+            -webkit-transition-duration: 0.5s;
+            -moz-transition-duration: 0.5s;
+            -o-transition-duration: 0.5s;
+        }
+        .test{
+            padding-left: 3rem;
+            padding-right: 3rem;
+        }
+    </style>
+    <div class="test">
+    <div class="col-lg-5 grid-margin stretch-card" xmlns="http://www.w3.org/1999/html">
+        <div class="card">
+            <div class="card-body">
+                <h1 class="card-title">Liste des FeedBacks </h1>
+
+                <div class="table-responsive pt-3">
+
+
+
+                    <table class="table table-bordered">
+                        <thead>
+                        <tr>
+
+                            <th>
+                                ID
+                            </th>
+                            <th>
+                                ID User
+                            </th>
+                            <th>
+                                ID Event
+                            </th>
+                            <th>
+                                Date Comments ( FEED )
+                            </th>
+                            <th>
+                                Description
+                            </th>
+                            <th>
+                                Action
+                            </th>
+                        </tr>
+                        </thead>
+                        <tbody id="Raslen">
+                        {% for e in feed %}
+
+                            <tr>
+
+                                <td>
+                                    {{ e.id }}
+                                </td>
+                                <td>
+                                    {{ e.idUser }}
+
+                                </td>
+                                <td>
+                                    {{ e.idEvent }}
+                                </td>
+                                <td>
+                                    {{ e.dateFeed|date('d/M/Y')  }}
+                                </td>
+                                <td>
+                                    {{ e.description }}
+                                </td>
+                                <td>
+                                    <a class="btn btn-danger a-btn-slide-text" href="{{ path('Feed_delete',{'id':e.id}) }}">
+                                        <span class="fas fa-minus-circle" aria-hidden="true"></span>
+                                        <span><strong>Supprimer</strong></span></a>
+                                </td>
+
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+{% endblock %}

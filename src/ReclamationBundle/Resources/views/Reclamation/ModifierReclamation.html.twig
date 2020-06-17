@@ -1,0 +1,35 @@
+<section class="feature_product_area section_gap">
+
+    <div class="container">
+
+
+        <div class="col-lg-9">
+            <div class="col-md-6">
+                {{ form_start(form) }}
+
+                <div class="form-group">
+                    <label for="exampleInputName1">Sujet de la réclamation</label>
+                    {{ form_widget(form.sujetreclamation, { 'attr': {'class': 'form-control'} }) }}
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputName1">Description</label>
+                    {{ form_widget(form.descriptionreclamation, { 'attr': {'class': 'form-control'} }) }}
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputName1">Captcha</label>
+                    {{ form_widget(form.captcha, { 'attr': {'class': ''} }) }}
+                </div>
+
+                <div class="col-md-6">
+
+                    <div class="col-md-12 text-right">
+                        <button type="submit" value="submit" class="btn submit_btn">Send Message</button>
+                    </div>
+                    {{ form_end(form) }}
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>

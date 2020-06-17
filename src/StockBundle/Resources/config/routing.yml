@@ -1,0 +1,25 @@
+stock_homepage:
+    path:     /
+    defaults: { _controller: StockBundle:Default:index }
+
+stock_Ajout:
+    path:     /admin/AjouterStock
+    defaults: { _controller: StockBundle:Stock:AjouterStock }
+stock_Afficher:
+    path:     /admin/AfficherStock
+    defaults: { _controller: StockBundle:Stock:AfficheStock }
+
+stock_delete:
+    path:     /admin/deleteStock/{id}
+    defaults: { _controller: StockBundle:Stock:deleteStock }
+
+stock_modifier:
+    path:     /admin/dModifierStock/{id}
+    defaults: { _controller: StockBundle:Stock:ModifierStock }
+Stat:
+    path: /admin/Stat
+    defaults: { _controller: StockBundle:Stat:Stat}
+
+stockMg_modifier:
+    path:     /admin/ModifierStockMg/{id}
+    defaults: { _controller: StockBundle:Stock:ModifierProdMg }
